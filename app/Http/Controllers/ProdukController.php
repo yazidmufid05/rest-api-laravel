@@ -32,10 +32,10 @@ class ProdukController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nama_produk' => 'required|string',
-            'deskripsi_produk' => 'required|string',
-            'harga_produk' => 'required|numeric',
-            'kategori_produk' => 'required|in:makanan,minuman,perlengkapan mandi,kosmetik',
+            'namaProduk' => 'required|string',
+            'deskripsiProduk' => 'required|string',
+            'hargaProduk' => 'required|numeric',
+            'kategoriProduk' => 'required|in:makanan,minuman,perlengkapan mandi,kosmetik',
         ]);
 
         if ($validator->fails()) {
@@ -43,10 +43,10 @@ class ProdukController extends Controller
         }
 
         $produk = Produk::create([
-            'nama_produk' => $request->input('nama_produk'),
-            'deskripsi_produk' => $request->input('deskripsi_produk'),
-            'harga_produk' => $request->input('harga_produk'),
-            'kategori_produk' => $request->input('kategori_produk'),
+            'namaProduk' => $request->input('nama_produk'),
+            'deskripsiProduk' => $request->input('deskripsi_produk'),
+            'hargaProduk' => $request->input('harga_produk'),
+            'kategoriProduk' => $request->input('kategori_produk'),
         ]);
 
         return response()->json(['message' => 'Product Created', 'data' => $produk], 201);
@@ -86,10 +86,10 @@ class ProdukController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
-            'nama_produk' => 'string|max:255',
-            'deskripsi_produk' => 'string',
-            'harga_produk' => 'numeric',
-            'kategori_produk' => 'in:makanan,minuman,perlengkapan mandi,kosmetik',
+            'namaProduk' => 'string|max:255',
+            'deskripsiProduk' => 'string',
+            'hargaProduk' => 'numeric',
+            'kategoriProduk' => 'in:makanan,minuman,perlengkapan mandi,kosmetik',
         ]);
 
         if ($validator->fails()) {
